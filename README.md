@@ -1,4 +1,6 @@
 # Presented at PharmaSUG 2017
+## Baltimore, Maryland, USA
+## 2017-05-15
 
 Paper: [view](https://www.pharmasug.org/proceedings/2017/TT/PharmaSUG-2017-TT07.pdf)
 
