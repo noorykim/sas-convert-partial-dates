@@ -1,6 +1,6 @@
 # Converting Non-Imputed Dates for SDTM Data Sets With PROC FCMP
 
-A paper illustrating how a SAS programmer can define a custom function using PROC FCMP for converting partial date values into another date format. 
+A paper illustrating how a SAS programmer can employ PROC FCMP to define a custom function that converts partial date values into an ISO 8601 date format. 
 
 Presented at PharmaSUG 2017
 
