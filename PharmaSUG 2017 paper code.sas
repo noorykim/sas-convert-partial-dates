@@ -40,46 +40,47 @@ proc fcmp outlib=work.functions.conversions;
       else outdate = ' ';
     end;
     else outdate = ' ';
-   return(outdate);
- endsub;
+    
+    return(outdate);
+  endsub;
  
  /* MODIFICATIONS TO PREVENT THE OUTPUT OF NONEXISTENT DATES */
   
- /* METHOD 1: COMPARE WITH THE LAST EXISTING DATE OF THE SAME MONTH */
- 
- function convertdate_modified_one(indate $) $;
-   length outdate $10;
-   if indate ne ' ' then do;
-     yyyy = substr(indate, 6, 4);
-     mmm = upcase(substr(indate, 3, 3));
-     dd = substr(indate, 1, 2);
+  /* METHOD 1: COMPARE WITH THE LAST EXISTING DATE OF THE SAME MONTH */
+  function convertdate_modified_one(indate $) $;
+    length outdate $10;
+    if indate ne ' ' then do;
+      yyyy = substr(indate, 6, 4);
+      mmm = upcase(substr(indate, 3, 3));
+      dd = substr(indate, 1, 2);
      
-     if notdigit(yyyy) = 0 then do;
-       mm = put(mmm, $month.);
-       if mm ne ' ' then do;
-         if notdigit(dd) = 0 then do;
-           outdate = yyyy || '-' || strip(mm) || '-' || dd;
+      if notdigit(yyyy) = 0 then do;
+        mm = put(mmm, $month.);
+        if mm ne ' ' then do;
+          if notdigit(dd) = 0 then do;
+            outdate = yyyy || '-' || strip(mm) || '-' || dd;
            
-           year = input(yyyy, 8.);
-           month = input(mm, 8.);
-           day = input(dd, 8.);
+            year = input(yyyy, 8.);
+            month = input(mm, 8.);
+            day = input(dd, 8.);
            
-           month_start = mdy(month, 1, year);
-           month_end = intnx('month', month_start, 0, 'end');
-           month_lastday = day(month_end);
+            month_start = mdy(month, 1, year);
+            month_end = intnx('month', month_start, 0, 'end');
+            month_lastday = day(month_end);
            
-           if (day < 1) or (day > month_lastday) then do;
-             outdate = yyyy || '-' || strip(mm);
-           end;
-         end;
-         else outdate = yyyy || '-' || strip(mm);
-       end;
-       else outdate = yyyy;
-     end;
-     else outdate = ' ';
-   end;
-   else outdate = ' ';
-   return(outdate);
+            if (day < 1) or (day > month_lastday) then do;
+              outdate = yyyy || '-' || strip(mm);
+            end;
+          end;
+          else outdate = yyyy || '-' || strip(mm);
+        end;
+        else outdate = yyyy;
+      end;
+      else outdate = ' ';
+    end;
+    else outdate = ' ';
+    
+    return(outdate);
  endsub;
  
   /* METHOD 2: CHECK IF POSSIBLE TO CONVERT TO NON-MISSING NUMERIC VALUE */
