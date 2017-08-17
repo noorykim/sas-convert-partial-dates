@@ -44,7 +44,7 @@ proc fcmp outlib=work.functions.conversions;
     return(outdate);
   endsub;
  
- /* MODIFICATIONS TO PREVENT THE OUTPUT OF NONEXISTENT DATES */
+  /* MODIFICATIONS TO PREVENT THE OUTPUT OF NONEXISTENT DATES */
   
   /* METHOD 1: COMPARE WITH THE LAST EXISTING DATE OF THE SAME MONTH */
   function convertdate_modified_one(indate $) $;
@@ -81,7 +81,7 @@ proc fcmp outlib=work.functions.conversions;
     else outdate = ' ';
     
     return(outdate);
- endsub;
+  endsub;
  
   /* METHOD 2: CHECK IF POSSIBLE TO CONVERT TO NON-MISSING NUMERIC VALUE */
 
@@ -89,31 +89,33 @@ proc fcmp outlib=work.functions.conversions;
     length outdate $10;
     if indate ne ' ' then do;
       yyyy = substr(indate, 6, 4);
- mmm = upcase(substr(indate, 3, 3));
- dd = substr(indate, 1, 2);
- if notdigit(yyyy) = 0 then do;
- mm = put(mmm, $month.);
- if mm ne ' ' then do;
- if notdigit(dd) = 0 then do;
- outdate = yyyy || '-' || strip(mm) || '-' || dd;
- outdate_numeric = input(outdate, anydtdte10.);
-if outdate_numeric < .z then do;
- outdate = yyyy || '-' || strip(mm);
- end;
+      mmm = upcase(substr(indate, 3, 3));
+      dd = substr(indate, 1, 2);
+      if notdigit(yyyy) = 0 then do;
+        mm = put(mmm, $month.);
+        if mm ne ' ' then do;
+          if notdigit(dd) = 0 then do;
+            outdate = yyyy || '-' || strip(mm) || '-' || dd;
+            outdate_numeric = input(outdate, anydtdte10.);
+            if outdate_numeric < .z then do;
+              outdate = yyyy || '-' || strip(mm);
+            end;
+          end;
+          else outdate = yyyy || '-' || strip(mm);
+        end;
+        else outdate = yyyy;
+      end;
+      else outdate = ' ';
+    end;
+    else outdate = ' ';
  
- end;
- else outdate = yyyy || '-' || strip(mm);
- end;
- else outdate = yyyy;
- end;
- else outdate = ' ';
- end;
- else outdate = ' ';
- return(outdate);
- endsub;
+    return(outdate);
+  endsub;
+  
 run;
 
 options cmplib=(work.functions);
+
 
 data one;
   infile cards;
