@@ -4,6 +4,4 @@
 
 [Slideshow](/pdf/PharmaSUG_2017_slides.pdf)
 
-[SAS code](https://github.com/noorykim/sas-convert-partial-dates/blob/master/PharmaSUG%202017%20paper%20code.sas)
-
-[SAS code](PharmaSUG%202017%20paper%20code.sas)
+SAS code: [view](https://github.com/noorykim/sas-convert-partial-dates/blob/master/PharmaSUG%202017%20paper%20code.sas) [download](PharmaSUG%202017%20paper%20code.sas)
