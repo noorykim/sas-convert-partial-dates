@@ -28,12 +28,8 @@ Kim, Noory Y. 2017. “Converting Non-Imputed Dates for SDTM Data Sets With PROC
 
 
 
-#
+# .
 
 Last updated 2017-08-21
-
-#
-
-[SAS Tips](/sas-tips)
 
 [Portfolio](/)
