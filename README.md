@@ -24,7 +24,7 @@ SDTM (Study Data Tabulation Model) data sets are required to store date values w
 
 ## Citation
 
-Kim, Noory Y. 2017. “Converting Non-Imputed Dates for SDTM Data Sets With PROC FCMP.” _Proceedings of the Pharmaceutical SAS Users Group (PharmaSUG) 2017 Conference._ Cary, NC: SAS Institute Inc. Available at https://www.pharmasug.org/proceedings/2017/TT/PharmaSUG-2017-TT07.pdf. 
+Kim, Noory Y. 2017. “Converting Non-Imputed Dates for SDTM Data Sets With PROC FCMP.” _Proceedings of the Pharmaceutical SAS Users Group (PharmaSUG) 2017 Conference._ Cary, NC: SAS Institute Inc. Available at [https://www.pharmasug.org/proceedings/2017/TT/PharmaSUG-2017-TT07.pdf](https://www.pharmasug.org/proceedings/2017/TT/PharmaSUG-2017-TT07.pdf). 
 
 
 
