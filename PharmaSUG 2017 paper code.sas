@@ -148,7 +148,7 @@ run;
 
 /* CLEAN UP: DELETE FUNCTIONS */
 proc fcmp outlib=work.functions.conversions;
-	deletefunc convertdate;
+  deletefunc convertdate;
   deletefunc convertdate_modified_one;
   deletefunc convertdate_modified_two;
 run;
