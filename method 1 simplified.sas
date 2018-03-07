@@ -32,7 +32,7 @@ proc fcmp outlib=work.functions.conversions;
         mm = put(mmm, $month.);
         if mm ne ' ' then do;
           if notdigit(dd) = 0 then do;
-            outdate = input(indate, yymmdd10.);
+            outdate = put(input(indate, yymmdd10.), yymmdd10.);
           end;
           else outdate = yyyy || '-' || strip(mm);
         end;
