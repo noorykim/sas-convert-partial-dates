@@ -1,6 +1,6 @@
 /* MODIFICATIONS TO PREVENT THE OUTPUT OF NONEXISTENT DATES */  
 /* METHOD 1: COMPARE WITH THE LAST EXISTING DATE OF THE SAME MONTH */
-/* simplified by Derek Morgan ('Mr. Dates and Times'), code doctor at PharmaSUG 2017 */
+/* simplified based on feedback by Derek Morgan ('Mr. Dates and Times'), code doctor at PharmaSUG 2017 */
 
 proc format;
   value $month
@@ -32,7 +32,7 @@ proc fcmp outlib=work.functions.conversions;
         mm = put(mmm, $month.);
         if mm ne ' ' then do;
           if notdigit(dd) = 0 then do;
-            outdate = put(input(indate, yymmdd10.), yymmdd10.);
+            outdate = put(mdy(mm, dd, yyyy), yymmdd10.);
           end;
           else outdate = yyyy || '-' || strip(mm);
         end;
