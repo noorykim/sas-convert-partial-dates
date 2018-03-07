@@ -21,7 +21,6 @@ proc format;
 run;
 
 proc fcmp outlib=work.functions.conversions;
-
   function convertdate(indate $) $;
     length outdate $10;
     if indate ne ' ' then do;
@@ -45,7 +44,6 @@ proc fcmp outlib=work.functions.conversions;
     
     return(outdate);
   endsub;
-
 run;
 
 options cmplib=(work.functions);
