@@ -1,6 +1,6 @@
 /* MODIFICATIONS TO PREVENT THE OUTPUT OF NONEXISTENT DATES */  
 /* METHOD 1: COMPARE WITH THE LAST EXISTING DATE OF THE SAME MONTH */
-/* simplified by Derek  ('Mr. Dates and Times'), code doctor at PharmaSUG 2017 */
+/* simplified by Derek Morgan ('Mr. Dates and Times'), code doctor at PharmaSUG 2017 */
 
 proc format;
   value $month
